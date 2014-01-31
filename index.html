@@ -1,477 +1,649 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <title>A Backbone js tutorial - Arvind Ravulavaru</title>
-      <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-      <meta name="author" content="Hakim El Hattab">
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <link rel="stylesheet" href="css/reveal.min.css">
-      <link rel="stylesheet" href="css/theme/simple.css" id="theme">
-      <!-- For syntax highlighting -->
-      <link rel="stylesheet" href="lib/css/zenburn.css">
-      <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      <script>
-         document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-      </script>
-      <!--[if lt IE 9]>
+<head>
+    <meta charset="utf-8">
+    <title>Backbone js - A Quick Start Tutorial</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Arvind Ravulavaru">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
+    </script>
+    <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
       <![endif]-->
-   </head>
-   <body>
-      <div class="reveal">
-         <div class="slides">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h1>
-                  <img src="http://backbonejs.org/docs/images/backbone.png">
-                  <br>
-               </h1>
-               <div>
-                  <br>
-               </div>
-               <div>
-                  <font color="#000000">Jan, 2014</font>
-               </div>
-               <div>
-                  <br>
-               </div>
-               <div>
-                  <br>
-               </div>
-               <div>
-                  <br>
-               </div>
-               <div>
-                  <br>
-               </div>
-               <div>
-                  <br>
-               </div>
-               <div style="text-align: right; ">
-                  <font color="#000000">Arvind Ravulavaru</font>
-               </div>
+                <h1>
+<img src="http://backbonejs.org/docs/images/backbone.png">
+        <br>
+</h1>
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <font color="#000000">Jan, 2014</font>
+                </div>
+                <div>
+                    <font color="#000000">
+    <br>
+</font>
+                </div>
+                <div>
+                    <font color="#000000">http://addyosmani.github.io/backbone-fundamentals/#getting-set-up<br>
+</font>
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div style="text-align: right; ">
+                    <font color="#ffffff">Arvind Ravulavaru</font>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>
-                  <font color="#000000">Contents</font>
-               </h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <font color="#000000">
-                        <li>Backbone - What is it?</li>
-                        <li>MVC - What, Why &amp; Where?</li>
-                        <li>Setting up Backbone</li>
+                <h2>
+        <font color="#ffffff">Contents</font>
+    </h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <font color="#000000">
+            <li>Backbone - What is it?</li>
+<li>MVC - What, Why &amp; Where?</li>
+<li>Understanding Models, View &amp; Controllers</li>
+<li>Setting up Backbone</li>
+<li>Sample Application</li>
+<li>AMD - What &amp; How?</li>
+<li>Final Words</li>
+<li>Resources</li>
+        </font>
+                    </ul>
+                </div>
+                <div style="text-align: left; ">
+                    <font color="#000000">AMD&nbsp;http://backbonetutorials.com/organizing-backbone-using-modules/</font>
+                </div>
+                <div style="text-align: left; ">
+                    <font color="#000000">http://backbonejs.org/docs/backbone.html<br>
+</font>
+                </div>
+                <div style="text-align: left; ">
+                    <font color="#000000">http://www.jboss.org/jdf/examples/ticket-monster/tutorial/gfx/backbone-usage.png<br>
+</font>
+                </div>
+                <div style="text-align: left; ">
+                    <br>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>
+<img src="http://gregfranko.com/images/backbone.png">
+    <br>
+</h2>
+                <div>
+                    <br>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>MVC</h2>
+                <div style="text-align: left; ">
+                    <ul>
                         <li>
-                           <br>
-                        </li>
-                     </font>
-                  </ul>
-               </div>
-               <div style="text-align: left; ">
-                  <font color="#000000">
-                  <br>
-                  </font>
-               </div>
-               <div style="text-align: left; ">
-                  <font color="#000000">AMD&nbsp;http://backbonetutorials.com/organizing-backbone-using-modules/</font>
-               </div>
-               <div style="text-align: left; ">
-                  <font color="#000000">
-                  <br>
-                  </font>
-               </div>
-               <div style="text-align: left; ">
-                  <font color="#000000">http://backbonejs.org/docs/backbone.html<br>
-                  </font>
-               </div>
-               <div style="text-align: left; ">
-                  <font color="#000000">http://www.jboss.org/jdf/examples/ticket-monster/tutorial/gfx/backbone-usage.png<br>
-                  </font>
-               </div>
-               <div style="text-align: left; ">
-                  <br>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>
-                  <img src="http://gregfranko.com/images/backbone.png">
-                  <br>
-               </h2>
-               <div>
-                  <br>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>MVC</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <p class="p1">
-                           <a href="http://en.wikipedia.org/wiki/Separation_of_concerns">Separation of concerns</a> <font color="#000000">- Application Logic vs User Interface</font>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <font color="#000000">Structure the code</font>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <font color="#000000">Re-use</font>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <font color="#000000">Decoupled Code</font>
-                        </p>
-                     </li>
-                  </ul>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>MVC -<span style="font-size: 64.566px;">What is it?</span></h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <font color="#cc0000">Models</font> &nbsp;- represent the domain-specific knowledge and data in an application. (e.g.,&nbsp;a User, Photo, or Todo note)<span>&nbsp;</span>
-                     </li>
-                     <ul>
-                        <li>Models can notify observers when their state changes.</li>
-                     </ul>
-                     <li>
-                        <font color="#cc0000">Views</font> &nbsp;- The user interface in an application (e.g., markup and templates)
-                     </li>
-                     <ul>
-                        <li>They observe Models, but don’t directly communicate with them.</li>
-                     </ul>
-                     <li>
-                        <font color="#cc0000">Controllers</font> handle input (e.g., clicks, user actions) and update Models.
-                     </li>
-                  </ul>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>MVC</h2>
-               <div>
-                  <img src="http://cupsofcocoa.files.wordpress.com/2011/08/mvc-diagram1.png" style="width: 717.1092144399785px; height: 512.4717786477142px; max-height: none; max-width: none;">
-                  <br>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>MV*</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <p class="p1">JavaScript MVC frameworks don’t always strictly follow the MVC pattern</p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <span>Some solutions (including Backbone.js) merge the responsibility of the Controller into the View, while other approaches add additional components into the mix.</span>
-                           <br>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <span>
-                           </span>
-                        </p>
-                        <p class="p1">For this reason we refer to such frameworks as following the MV* pattern; that is, you’re likely to have a Model and a View, but a distinct Controller might not be present and other components may come into play.</p>
-                     </li>
-                  </ul>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>
-                  <br>
-               </h2>
-               <h2>
-                  <br>
-               </h2>
-               <h2>
-                  <a href="http://www.todomvc.com">Which MV* Framework to pick?</a>
-               </h2>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>A Simple Todo List</h2>
-               <h2>
-                  <span style="text-align: left;">
-                  <a href="http://arvindr21.github.io/BackboneTodoApp/">Todo Demo</a>
-                  </span>
-               </h2>
-               <div>
-                  <img src="http://todomvc.com/site-assets/screenshot.png" style="width: 764.0181045263084px; height: 336.2324162641417px; max-height: none; max-width: none;">
-                  <br>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone Setup</h2>
-               <div style="text-align: left; ">Dependencies</div>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>jquery</li>
-                     <li>underscore</li>
-                     <li>backbone</li>
-                     <li>JSON2.js (optional)</li>
-                  </ul>
-                  <div>http://addyosmani.github.io/backbone-fundamentals/#getting-set-up<br></div>
-                  <div>
-                     <br>
-                  </div>
-                  <div>
-                     <br>
-                  </div>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone Model</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/UEAT4/1/">Basic Model</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/UEAT4/2/">Initialize</a>&nbsp;
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/UEAT4/3/">Defaults</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/UEAT4/4/">Model.get()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/UEAT4/5/">Model.toJSON()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/VLnRL/">Model.set()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/VLnRL/1/">Listening for Model Changes</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/VLnRL/2/">Listening for Model Attribute Changes</a>
-                     </li>
-                     <li>
-                        <a href="http://backbonejs.org/#Model-validate">Validations</a>
-                     </li>
-                  </ul>
-               </div>
-            </section>
-            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone Collections</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/5/">Basic Collection</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/6/">Add &amp; Remove Models from collection</a>
-                     </li>
-                     <li>
-                        <span>id, cid, and idAttribute</span>
-                     </li>
-                     <ul>
-                        <li>
-                           <span>id: unique identifier/int, string [e.g: UUID]</span>
+
+
+
+
+                            <p class="p1">
+                                <a href="http://en.wikipedia.org/wiki/Separation_of_concerns">Separation of concerns</a>  <font color="#000000">- Application Logic vs User Interface</font>
+                            </p>
                         </li>
                         <li>
-                           <span>cid : client id/Auto generated</span>
+                            <p class="p1">
+                                <font color="#000000">Structure the code</font>
+                            </p>
                         </li>
                         <li>
-                           <span>
-                           <span style="font-size: 35.94248962402344px; font-style: normal; font-variant: normal;">idAttribute : server side equivalent</span>
-                           </span>
+                            <p class="p1">
+                                <font color="#000000">Re-use</font>
+                            </p>
                         </li>
-                     </ul>
-                     <li>
-                        <p class="p1">
-                           <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/9/">Retrieving Models</a>
-                        </p>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/7/">Collection&nbsp;Events</a>
+                        <li>
+                            <p class="p1">
+                                <font color="#000000">Decoupled Code</font>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>MVC -<span style="font-size: 64.566px;">What is it?</span>
+</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <font color="#cc0000">Models</font> &nbsp;- represent the domain-specific knowledge and data in an application. (e.g.,&nbsp;a User, Photo, or Todo note)<span>&nbsp;</span>
+                        </li>
+                        <ul>
+                            <li>Models can notify observers when their state changes.</li>
+                        </ul>
+                        <li>
+                            <font color="#cc0000">Views</font> &nbsp;- The user interface in an application (e.g., markup and templates)</li>
+                        <ul>
+                            <li>They observe Models, but don’t directly communicate with them.</li>
+                        </ul>
+                        <li>
+                            <font color="#cc0000">Controllers</font> handle input (e.g., clicks, user actions) and update Models.</li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>MVC</h2>
+                <div>
+                    <img src="http://cupsofcocoa.files.wordpress.com/2011/08/mvc-diagram1.png" style="width: 717.1092144399785px; height: 512.4717786477142px; max-height: none; max-width: none;">
+                    <br>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>MV*</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+
+
+
+
+                            <p class="p1">JavaScript MVC frameworks don’t always strictly follow the MVC pattern</p>
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <span>Some solutions (including Backbone.js) merge the responsibility of the Controller into the View, while other approaches add additional components into the mix.</span>
+                                <br>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <span>
+
+
+
+
+</span>
+                            </p>
+                            <p class="p1">For this reason we refer to such frameworks as following the MV* pattern; that is, you’re likely to have a Model and a View, but a distinct Controller might not be present and other components may come into play.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>
+        <br>
+    </h2>
+                <h2>
+    <br>
+</h2>
+                <h2>
+<a href="todomvc.com">Which MV* Framework to pick?</a>
+</h2>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>A Simple Todo List</h2>
+                <h2>
+    <span style="text-align: left;">
+        <a href="http://arvindr21.github.io/BackboneTodoApp/">Todo Demo</a>
+    </span>
+</h2>
+                <div>
+                    <img src="http://todomvc.com/site-assets/screenshot.png" style="width: 764.0181045263084px; height: 336.2324162641417px; max-height: none; max-width: none;">
+                    <br>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>Backbone Setup</h2>
+                <div style="text-align: left; ">Dependencies</div>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>jquery</li>
+                        <li>underscore</li>
+                        <li>backbone</li>
+                        <li>JSON2.js (Browsers that do not support JSON by default)</li>
+                    </ul>
+                    <div>
                         <br>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/8/">Collection &gt; Model &gt; Attribute Events</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/j3Hjk/2/">Resetting &amp; Refreshing Collections</a>
-                     </li>
-                  </ul>
-               </div>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone View</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <p class="p1">
-                           <span>Contain the logic behind the presentation of the model’s data to the user</span>
-                           <br>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <span>
-                           </span>
-                        </p>
-                        <p class="p1">Achieved using JavaScript templating (e.g., Underscore Microtemplates, Mustache, jQuery-tmpl, etc.)</p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <span>A view’s render() method can be bound to a model’s change() event,&nbsp;</span>
-                           <span>to instantly reflect model changes without refresh.</span>
-                           <br>
-                        </p>
-                     </li>
-                  </ul>
-               </div>
+                <h2>Backbone Model</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <a href="http://jsbin.com/asezIYeZ/3/edit">Basic Model</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/utolukIq/2/edit">Initialize</a>&nbsp;</li>
+                        <li>
+                            <a href="http://jsbin.com/epIleRam/2/edit">Defaults</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/OPAbujEX/2/edit">Model.get()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/ERuYiPa/2/edit">Model.toJSON()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/UZUXoTo/2/edit">Model.set()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/eqoqEBoZ/2/edit">Listening for Model Changes</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/OyABuNOD/2/edit">Listening for Model Attribute Changes</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/aMITocIj/2/edit">Validations</a>
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone View</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/2/">Basic View</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/u6KEU/3/">Advanced View</a>
-                     </li>
-                     <ul>
-                        <li>el, $el</li>
-                        <li>render()</li>
-                        <li>events hash</li>
-                     </ul>
-                  </ul>
-               </div>
+                <h2>Backbone Collections</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <a href="http://jsbin.com/inOVIZE/2/edit">Basic Collection</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/iPeViRU/2/edit">Add &amp; Remove Models from collection</a>
+                        </li>
+                        <li>
+                            <span>id, cid, and idAttribute</span>
+                        </li>
+                        <ul>
+                            <li>
+                                <span>id: unique identifier/int, string [e.g: UUID]</span>
+                            </li>
+                            <li>
+                                <span>cid : client id/Auto generated</span>
+                            </li>
+                            <li>
+                                <span>
+    <span style="font-size: 35.94248962402344px; font-style: normal; font-variant: normal;">idAttribute : server side equivalent</span>
+                                </span>
+                            </li>
+                        </ul>
+                        <li>
+
+
+
+
+                            <p class="p1">
+                                <a href="http://jsbin.com/izoKotI/2/edit">Retrieving Models</a>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/aGePEduX/2/edit">Collection&nbsp;Events</a>
+                            <br>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/UREFEcUJ/2/edit">Collection &gt; Model &gt; Attribute Events</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/ogaFiyAv/2/edit">Resetting &amp; Refreshing Collections</a>
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone Controller - ~"Routers"*</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <p class="p1">Provide a way for you to connect URLs</p>
-                     </li>
-                     <li>
-                        <p class="p1">Pages that need to be&nbsp;<span>bookmarkable, shareable or back-button-able</span>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">
-                           <a href="http://jsfiddle.net/arvindravulavaru/dN5jJ/1/">Sample Backbone Controller</a>
-                        </p>
-                     </li>
-                     <li>
-                        <p class="p1">Backbone.history</p>
-                     </li>
-                     <li>
-                        <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
-                           <p class="p1">monitor hashchange - Backbone.history.start()</p>
-                        </blockquote>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/dN5jJ/3/">navigate()</a>
-                     </li>
-                  </ul>
-               </div>
+                <h2>Backbone View</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+
+
+
+
+                            <p class="p1">
+                                <span>Contain the logic behind the presentation of the model’s data to the user</span>
+                                <br>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <span>
+
+
+
+
+</span>
+                            </p>
+                            <p class="p1">Achieved using JavaScript templating (e.g., Underscore Microtemplates, Mustache, jQuery-tmpl, etc.)</p>
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <span>A view’s render() method can be bound to a model’s change() event,&nbsp;</span>
+                                <span>to instantly reflect model changes without refresh.</span>
+                                <br>
+                            </p>
+
+
+
+
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>RESTful Persistence</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/j3Hjk/5/">Fetch()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/j3Hjk/7/">Create()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/j3Hjk/6/">Save()</a>
-                     </li>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/j3Hjk/8/">Destroy()</a>
-                     </li>
-                  </ul>
-               </div>
+                <h2>Backbone View</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <a href="http://jsbin.com/AdoQUDem/2/edit">Basic View</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/ORiKivu/2/edit">Advanced View</a>
+                        </li>
+                        <ul>
+                            <li>el, $el</li>
+                            <li>render()</li>
+                            <li>events hash</li>
+                        </ul>
+                    </ul>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Backbone's Sync API</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>Stitches all the RESTful operations underhood</li>
-                     <ul>
-                        <li>Backbone.emulateHTTP = false; // set to true if server cannot handle HTTP PUT or HTTP DELETE</li>
-                        <li>Backbone.emulateJSON = false; // set to true if server cannot handle application/json requests</li>
-                     </ul>
-                     <li>Uses the save method</li>
-                     <ul>
-                        <li>Todos.save(updatedModel,{options});&nbsp;</li>
-                     </ul>
-                     <li>
-                        <a href="http://jsfiddle.net/arvindravulavaru/dN5jJ/5/">Overriding Backbone.Sync()</a>
-                     </li>
-                  </ul>
-               </div>
+                <h2>Backbone Controller - ~"Routers"*</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+
+
+
+
+                            <p class="p1">Provide a way for you to connect URLs</p>
+                        </li>
+                        <li>
+                            <p class="p1">Pages that need to be&nbsp;<span>bookmarkable, shareable or back-button-able</span>
+                            </p>
+
+
+
+
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <a href="http://jsbin.com/AJaVUKO/2/edit">Sample Backbone Controller</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="p1">Backbone.history</p>
+                        </li>
+                        <li>
+                            <p class="p1">monitor hashchange - Backbone.history.start()</p>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/eyiKoqIF/1/edit">navigate()</a>
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section data-background-color="rgba( 255, 255, 255, 0.6 )">
-               <h2>Who uses backbone?</h2>
-               <div style="text-align: left; ">
-                  <ul>
-                     <li>
-                        <a href="http://disqus.com/">Disqus</a>
-                     </li>
-                     <li>
-                        <a href="https://www.khanacademy.org/">Khan Academy</a>
-                     </li>
-                     <li>
-                        <a href="http://mobile.walmart.com/">Walmart Mobile</a>
-                     </li>
-                     <li>
-                        <a href="https://www.airbnb.com/">Airbnb</a>
-                     </li>
-                     <li>
-                        <a href="https://www.codeschool.com/">Code School</a>
-                     </li>
-                  </ul>
-               </div>
+                <h2>RESTful Persistence</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <a href="http://jsbin.com/EVUbEXE/2/edit">Fetch()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/odoLEHih/2/edit">Create()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/ufEluso/2/edit">Save()</a>
+                        </li>
+                        <li>
+                            <a href="http://jsbin.com/EYUBaYa/4/edit">Destroy()</a>
+                        </li>
+                    </ul>
+                </div>
             </section>
-         </div>
-      </div>
-      <script src="lib/js/head.min.js"></script>
-      <script src="js/reveal.min.js"></script>
-      <script>
-         // Full list of configuration options available here:
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>Backbone's Sync API</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>Stitches all the RESTful operations underhood</li>
+                        <ul>
+                            <li>Backbone.emulateHTTP = false; // set to true if server cannot handle HTTP PUT or HTTP DELETE</li>
+                            <li>Backbone.emulateJSON = false; // set to true if server cannot handle application/json requests</li>
+                        </ul>
+                        <li>Uses the save method</li>
+                        <ul>
+                            <li>Todos.save(updatedModel,{options});&nbsp;</li>
+                        </ul>
+                        <li>
+                            <a href="http://jsbin.com/INuPaCEC/2/edit">Overriding Backbone.Sync()</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>A Library Application</h2>
+                <div style="text-align: left; ">
+                    <div style="text-align: center; ">
+                        <img src="http://www.jboss.org/jdf/examples/ticket-monster/tutorial/gfx/backbone-usage.png" style="width: 594.8748278326283px; height: 497.69435585751194px; max-height: none; max-width: none;">
+                        <br>
+                    </div>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>Library Application Walkthrough</h2>
+                <div>
+                    <a href="http://arvindr21.github.io/BackbonejsLibraryapp/#View/1">Demo</a>
+                </div>
+                <div>
+                    <br>
+                </div>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>Model - Book/ Collection - Library</li>
+                        <li>View - One Book Entity</li>
+                        <li>Controller - One Book/All Books</li>
+                        <li>Main.js - <a href="http://arvindr21.github.io/BackbonejsLibraryapp/explain/explain.main.html">Walkthrough</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>
+        <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>
+    </h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+
+
+
+
+                            <p class="p1">Asynchronous Module Definitions (API)</p>
+                        </li>
+                        <li>
+                            <p class="p1">
+
+
+
+
+                            </p>
+                            <p class="p1">Designed to load modular code asynchronously in the browser&nbsp;</p>
+                        </li>
+                        <li>
+                            <p class="p1">
+                                <span>Particularly well suited for the browser environment where&nbsp;</span>
+                                <span>synchronous loading of modules incurs</span>
+                                <span>&nbsp;</span>
+                                <br>
+                            </p>
+
+
+
+
+                        </li>
+                        <ul>
+                            <li>
+
+                                <p class="p1">
+                                    <span>
+</span>
+                                </p>
+
+                                <span>Performance Issues</span>
+
+                                <p>
+                                </p>
+                            </li>
+                            <li>
+                                <span>Usability</span>
+
+                            </li>
+                            <li>
+                                <span>Debugging</span>
+
+                            </li>
+                            <li>
+                                <span>Cross Domain</span>
+
+                            </li>
+                        </ul>
+                        <li>
+                            <i>Ex: <a href="http://www.sitepoint.com/understanding-requirejs-for-effective-javascript-module-loading/">Require.js</a>, yepnope.js</i>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+			<section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>AMD + js MVC</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            require.js + Backbone.js = Modular Effective Development
+                        </li>
+                        <li>
+                            <a href="https://www.khanacademy.org/">Khan Academy</a>
+                        </li>
+                        <li>
+                            <a href="http://mobile.walmart.com/">Walmart Mobile</a>
+                        </li>
+                        <li>
+                            <a href="https://www.airbnb.com/">Airbnb</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codeschool.com/">Code School</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section data-background-color="rgba( 255, 255, 255, 0.6 )">
+                <h2>Who uses backbone?</h2>
+                <div style="text-align: left; ">
+                    <ul>
+                        <li>
+                            <a href="http://disqus.com/">Disqus</a>
+                        </li>
+                        <li>
+                            <a href="https://www.khanacademy.org/">Khan Academy</a>
+                        </li>
+                        <li>
+                            <a href="http://mobile.walmart.com/">Walmart Mobile</a>
+                        </li>
+                        <li>
+                            <a href="https://www.airbnb.com/">Airbnb</a>
+                        </li>
+                        <li>
+                            <a href="https://www.codeschool.com/">Code School</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
+        // Full list of configuration options available here:
          // https://github.com/hakimel/reveal.js#configuration
-         Reveal.initialize({
-         	controls: true,
-         	progress: true,
-         	history: true,
-         	center: false,
-         	overview: true,
-         	previewLinks: true,
-         	transition: 'cube',
-         	viewDistance: 3,
-         
-         	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-         	transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-         
-         	// Parallax scrolling
-         	// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-         	// parallaxBackgroundSize: '2100px 900px',
-         
-         	// Optional libraries used to extend on reveal.js
-         	dependencies: [
-         		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-         		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-         		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-         		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-         		{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-         		{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-         	]
-         });
-         
-      </script>
-   </body>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: false,
+            overview: true,
+            previewLinks: false,
+            transition: 'cube',
+            viewDistance: 3,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function () {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            }]
+        });
+    </script>
+</body>
+
 </html>
